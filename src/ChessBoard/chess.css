@@ -1,0 +1,14 @@
+.chessBoard{
+    display: grid;
+    justify-content: center;
+}
+td{
+    border: 3px solid gray;
+    padding: 30px;
+}
+.black{
+    background-color: black;
+}
+tr{
+   
+}

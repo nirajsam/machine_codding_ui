@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import ErrorBoundary from './ErrorBoundry';
+// import ConnectDot from './ConnectDotGame/connectDot';
+import InfiniteScrollApp from './InfiniteScroll';
+// import CheckAndMove from './metaQues/CheckAndMove';
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment } from './redux/Slices/Counter/index'
 
 function App() {
+  const count = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  {/*<CheckAndMove/>*/}
+      {/*<ConnectDot/>*/}
+      <ErrorBoundary><InfiniteScrollApp/></ErrorBoundary>
+      <h1>Count {count}</h1>
+      <button type="button" onClick={()=>dispatch(increment())}>increment</button>
+      <button type="button" onClick={()=> dispatch(decrement())}>Decrement</button>
+      
     </div>
   );
 }
